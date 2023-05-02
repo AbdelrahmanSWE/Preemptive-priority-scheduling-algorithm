@@ -118,4 +118,8 @@ public class Scheduler {
     public ArrayList<Process> getFinishedProcesses() {
         return finishedProcesses;
     }
+
+    public ArrayList<GanttRecord> getGanttChart() {
+        return ganttChart;
+    }
 }

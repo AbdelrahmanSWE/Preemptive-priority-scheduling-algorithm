@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         double avgResponse=0, avgWait=0, avgTurnAround=0;
         ArrayList<Process>p=new ArrayList<>();
-        InputHandler.inputProcess(p);
+        //InputHandler.inputProcess(p);
         Scheduler s=new Scheduler(p);
         s.scheduleSimulate();
         s.optimiseGanttChart();
