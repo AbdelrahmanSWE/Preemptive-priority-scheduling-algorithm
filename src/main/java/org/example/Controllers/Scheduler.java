@@ -1,4 +1,8 @@
-package org.example;
+package org.example.Controllers;
+
+import org.example.Models.GanttRecord;
+import org.example.Models.PriorityQueue;
+import org.example.Models.Process;
 
 import java.util.ArrayList;
 

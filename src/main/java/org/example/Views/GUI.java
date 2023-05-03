@@ -1,4 +1,8 @@
-package org.example;
+package org.example.Views;
+
+import org.example.Controllers.InputHandler;
+import org.example.Models.Process;
+import org.example.Controllers.Scheduler;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -127,103 +131,76 @@ public class GUI extends javax.swing.JFrame {
         };
         System.out.println("Number of Processes " + jTextField1.getText());
         //Number Of Processes
-        noProcesses = Integer.parseInt(jTextField1.getText());
-        data = new String[noProcesses][5];
-        for (int i = 0; i < data.length; i++) {
-            data[i][0] = "P" + (i+1);
-        }
-        data[0][1]="0";
-        JTable table = new JTable(data, columns) {
-            //src: https://stackoverflow.com/a/32145111/5175946
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return !(column == 0 || (row==0&&column==1));
+        try{
+            noProcesses = Integer.parseInt(jTextField1.getText());
+            data = new String[noProcesses][5];
+            for (int i = 0; i < data.length; i++) {
+                data[i][0] = "P" + (i+1);
             }
-        };
-        p=new ArrayList<>();
-
-        table.getTableHeader().setReorderingAllowed(false);
-        jButton2.setEnabled(true);
-        jScrollPane2.setViewportView(table);
-        //table.getModel().getValueAt(WIDTH, ICONIFIED)
-        // drawing
-    }
-
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt){
-        for (int i=0;i<noProcesses;i++){
-            InputHandler.input(p,data[i][4],data[i][1],data[i][2],data[i][3]);
-        }
-        Scheduler s=new Scheduler(p);
-        s.scheduleSimulate();
-        CalculationsGUI G = new CalculationsGUI(s.getFinishedProcesses());
-        JPanel canvas = new JPanel() {
-            public void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                int temp=0,i;
-                g.setFont(new Font("Serif", Font.BOLD, 14));
-                int locX=30,locY=20;
-                int pNameLocX=45,pNameLocY=30;
-                for (i=0 ;i<s.getGanttChart().size();i++) {
-                    if (temp!=s.getGanttChart().get(i).getPID()){
-                        g.drawString(String.valueOf(i), locX, locY);
-                        g.drawString("P"+s.getGanttChart().get(i).getPID(), pNameLocX, pNameLocY);//-----
-                        g.drawLine(locX, 0, locX, 10);
-                        temp=s.getGanttChart().get(i).getPID();
-                    }
-
-                    locX+=30;
-                    pNameLocX+=30;
+            data[0][1]="0";
+            JTable table = new JTable(data, columns) {
+                //src: https://stackoverflow.com/a/32145111/5175946
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return !(column == 0 || (row==0&&column==1));
                 }
-                g.drawString(String.valueOf(i), locX, locY);
-                g.drawLine(locX, 0, locX, 10);
+            };
+            p=new ArrayList<>();
 
-
+            table.getTableHeader().setReorderingAllowed(false);
+            jButton2.setEnabled(true);
+            jScrollPane2.setViewportView(table);
+        }
+        catch(Exception E){
+            System.out.println("bad process number");
+        }
+    }
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt){
+        try{
+            for (int i=0;i<noProcesses;i++){
+                InputHandler.input(p,data[i][4],data[i][1],data[i][2],data[i][3]);
             }
-            //src: https://stackoverflow.com/a/26415897/5175946
-            @Override
-            public Dimension getPreferredSize() {
-                return new Dimension(1000, 1000);
-            }
-        };
+            Scheduler s=new Scheduler(p);
+            s.scheduleSimulate();
+            CalculationsGUI g=new CalculationsGUI(s.getFinishedProcesses());
+            JPanel canvas = new JPanel() {
+                public void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    int temp=0,i;
+                    g.setFont(new Font("Serif", Font.BOLD, 14));
+                    int locX=30,locY=20;
+                    int pNameLocX=45,pNameLocY=30;
+                    for (i=0 ;i<s.getGanttChart().size();i++) {
+                        if (temp!=s.getGanttChart().get(i).getPID()){
+                            g.drawString(String.valueOf(i), locX, locY);
+                            g.drawString("P"+s.getGanttChart().get(i).getPID(), pNameLocX, pNameLocY);//-----
+                            g.drawLine(locX, 0, locX, 10);
+                            temp=s.getGanttChart().get(i).getPID();
+                        }
+
+                        locX+=30;
+                        pNameLocX+=30;
+                    }
+                    g.drawString(String.valueOf(i), locX, locY);
+                    g.drawLine(locX, 0, locX, 10);
 
 
-        jScrollPane1.setViewportView(canvas);
-
+                }
+                //src: https://stackoverflow.com/a/26415897/5175946
+                @Override
+                public Dimension getPreferredSize() {
+                    return new Dimension(1000, 1000);
+                }
+            };
+            jScrollPane1.setViewportView(canvas);
+        }catch (Exception e){
+            System.out.println("bad input");
+        }
     }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

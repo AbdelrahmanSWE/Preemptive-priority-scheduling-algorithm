@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Models;
 
 import java.util.ArrayList;
 
@@ -11,13 +11,13 @@ public class PriorityQueue {
     }
 
     public void addProcess( Process p){
-        int i=0;
+        int i;
         if (processQueue.isEmpty()){
             processQueue.add(p);
         }
         else {
             for (i=0;i<processQueue.size();i++){
-                if (p.getPriorityLvl()<processQueue.get(i).getPriorityLvl()) {
+                if ((p.getPriorityLvl()<=processQueue.get(i).getPriorityLvl())&&(p.getArrivalTime()<processQueue.get(i).getArrivalTime())) {
                     processQueue.add(i,p);
                     break;
                 }

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Models;
 
 public class GanttRecord {
     private int inTime;

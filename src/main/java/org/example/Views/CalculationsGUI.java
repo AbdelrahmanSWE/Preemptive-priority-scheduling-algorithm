@@ -1,9 +1,10 @@
-package org.example;
+package org.example.Views;
+
+import org.example.Models.Process;
+import org.example.Controllers.Scheduler;
 
 import javax.swing.*;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class CalculationsGUI {
         };
         DefaultTableModel model = new DefaultTableModel(data, columns);
         JTable jt=new JTable(model);
-        JLabel jLAVGTAT=new JLabel("Avg TAT:"+Scheduler.calculateAVGTAT(p));
+        JLabel jLAVGTAT=new JLabel("Avg TAT:"+ Scheduler.calculateAVGTAT(p));
         JLabel jLAVGRT=new JLabel("Avg RT:"+Scheduler.calculateAVGRT(p));
         JLabel jLAVGWT=new JLabel("Avg WT:"+Scheduler.calculateAVGWT(p));
         jt.setBounds(30,40,200,300);
