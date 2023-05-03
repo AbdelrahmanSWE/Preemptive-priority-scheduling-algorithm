@@ -132,11 +132,12 @@ public class GUI extends javax.swing.JFrame {
         for (int i = 0; i < data.length; i++) {
             data[i][0] = "P" + (i+1);
         }
+        data[0][1]="0";
         JTable table = new JTable(data, columns) {
             //src: https://stackoverflow.com/a/32145111/5175946
             @Override
             public boolean isCellEditable(int row, int column) {
-                return !(column == 0);
+                return !(column == 0 || (row==0&&column==1));
             }
         };
         p=new ArrayList<>();
@@ -155,24 +156,28 @@ public class GUI extends javax.swing.JFrame {
         }
         Scheduler s=new Scheduler(p);
         s.scheduleSimulate();
-
+        CalculationsGUI G = new CalculationsGUI(s.getFinishedProcesses());
         JPanel canvas = new JPanel() {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                int temp=0;
+                int temp=0,i;
                 g.setFont(new Font("Serif", Font.BOLD, 14));
                 int locX=30,locY=20;
                 int pNameLocX=45,pNameLocY=30;
-                for (int i=0 ;i<s.getGanttChart().size();i++) {
+                for (i=0 ;i<s.getGanttChart().size();i++) {
                     if (temp!=s.getGanttChart().get(i).getPID()){
                         g.drawString(String.valueOf(i), locX, locY);
                         g.drawString("P"+s.getGanttChart().get(i).getPID(), pNameLocX, pNameLocY);//-----
                         g.drawLine(locX, 0, locX, 10);
                         temp=s.getGanttChart().get(i).getPID();
                     }
+
                     locX+=30;
                     pNameLocX+=30;
                 }
+                g.drawString(String.valueOf(i), locX, locY);
+                g.drawLine(locX, 0, locX, 10);
+
 
             }
             //src: https://stackoverflow.com/a/26415897/5175946
@@ -212,7 +217,6 @@ public class GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

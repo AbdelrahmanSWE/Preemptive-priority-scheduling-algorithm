@@ -9,9 +9,9 @@ public class Main {
         //InputHandler.inputProcess(p);
         Scheduler s=new Scheduler(p);
         s.scheduleSimulate();
-        s.optimiseGanttChart();
         avgResponse=s.calculateAVGRT(s.getFinishedProcesses());
         avgTurnAround=s.calculateAVGTAT(s.getFinishedProcesses());
         avgWait=s.calculateAVGWT(s.getFinishedProcesses());
+
     }
 }

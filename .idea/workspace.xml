@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1c0e19a-0b3a-469d-ac14-e2c11a00bf68" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculationsGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/NewJFrame.form" afterDir="false" />
+    <list default="true" id="a1c0e19a-0b3a-469d-ac14-e2c11a00bf68" name="Changes" comment="changes by AbdalrahmanAlsherif&#10;-Created GUI for algorithm with the help of AbdelrahmanSWE &#10;-Made Gannt chart GUI&#10;-GUI for Calculations in the form of a table &#10;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&#10;changes by AbdelrahmanSWE&#10;-General Optimization &#10;-connections between algorithm and GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CalculationsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculationsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <list id="94f35894-b39e-447a-b005-d00983e545ab" name="Changes by DeadlyPants" comment="changes by AbdalrahmanAlsherif&#10;-Created GUI for algorithm with the help of AbdelrahmanSWE &#10;-Made Gannt chart GUI&#10;-GUI for Calculations in the form of a table &#10;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&#10;changes by AbdelrahmanSWE&#10;-General Optimization &#10;-connections between algorithm and GUI">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CalculationsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CalculationsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Scheduler.java" afterDir="false" />
     </list>
@@ -37,6 +35,25 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/example/CalculationsGUI.java">
+      <ranges>
+        <range start1="3" end1="8" start2="3" end2="8" changelist="94f35894-b39e-447a-b005-d00983e545ab" />
+        <range start1="11" end1="12" start2="11" end2="12" changelist="94f35894-b39e-447a-b005-d00983e545ab" />
+        <range start1="13" end1="18" start2="13" end2="21" changelist="94f35894-b39e-447a-b005-d00983e545ab" />
+        <range start1="19" end1="19" start2="22" end2="23" changelist="94f35894-b39e-447a-b005-d00983e545ab" />
+        <range start1="21" end1="25" start2="25" end2="26" changelist="94f35894-b39e-447a-b005-d00983e545ab" />
+        <range start1="26" end1="27" start2="27" end2="32" changelist="a1c0e19a-0b3a-469d-ac14-e2c11a00bf68" />
+        <range start1="34" end1="34" start2="39" end2="50" changelist="a1c0e19a-0b3a-469d-ac14-e2c11a00bf68" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/example/Main.java">
+      <ranges>
+        <range start1="11" end1="12" start2="11" end2="11" changelist="94f35894-b39e-447a-b005-d00983e545ab" />
+        <range start1="15" end1="15" start2="14" end2="15" changelist="a1c0e19a-0b3a-469d-ac14-e2c11a00bf68" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -46,28 +63,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "GUI",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "openjdk-18",
-    "last_opened_file_path": "C:/Users/abdal/Documents/java Projects/JavaApplication49",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GUI&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/abdal/Documents/java Projects/JavaApplication49&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\abdal\Documents\java Projects\Preemptive-priority-scheduling-algorithm\src\main\java\org\example" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.GUI" />
       <module name="PriorityAlgorithm" />
@@ -131,13 +148,26 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="changes by AbdalrahmanAlsherif&#10;-Created GUI for algorithm with the help of AbdelrahmanSWE &#10;-Made Gannt chart GUI&#10;-GUI for Calculations in the form of a table &#10;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&#10;changes by AbdelrahmanSWE&#10;-General Optimization &#10;-connections between algorithm and GUI" />
     <option name="LAST_COMMIT_MESSAGE" value="changes by AbdalrahmanAlsherif&#10;-Created GUI for algorithm with the help of AbdelrahmanSWE &#10;-Made Gannt chart GUI&#10;-GUI for Calculations in the form of a table &#10;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&#10;changes by AbdelrahmanSWE&#10;-General Optimization &#10;-connections between algorithm and GUI" />
   </component>

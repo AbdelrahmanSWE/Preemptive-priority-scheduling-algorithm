@@ -73,7 +73,7 @@ public class Scheduler {
         }
         ganttChart=newGantt;
     }
-    public double calculateAVGTAT(ArrayList<Process> p){
+    public static double calculateAVGTAT(ArrayList<Process> p){
         int sum=0;
         double avg;
         for (int i=0;i<p.size();i++){
@@ -82,7 +82,7 @@ public class Scheduler {
         avg=sum/p.size();
         return avg;
     }
-    public double calculateAVGRT(ArrayList<Process> p){
+    public static double calculateAVGRT(ArrayList<Process> p){
         int sum=0;
         double avg;
         for (int i=0;i<p.size();i++){
@@ -91,7 +91,7 @@ public class Scheduler {
         avg=sum/p.size();
         return avg;
     }
-    public double calculateAVGWT(ArrayList<Process> p){
+    public static double calculateAVGWT(ArrayList<Process> p){
         int sum=0;
         double avg;
         for (int i=0;i<p.size();i++){
