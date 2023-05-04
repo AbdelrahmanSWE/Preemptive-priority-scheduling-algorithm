@@ -18,18 +18,7 @@ public class Scheduler {
         this.currentTime=0;
         this.finishedProcesses=new ArrayList<>();
     }
-    /*
-    * To the future me who will debug this code I would like to apologize
-    * the process this code conduct the following
-    * first is, take the first arriving process and add it to the readyQueue    *  will check whether it's the first time this process runs, based on that the process will set the response
-    * time accordingly
-    * then we will proceed to subtract 1 from the burst time,
-    * make a gantt record in our gantt chart, then check whether it's zero or not, based on the answer
-    * this will determine whether the process goes back to the readyQueue or not, then we increase the current time by one,
-    * then we go into a for loop to check if a new process arrived, according to the current times and the processes saved
-    * if a new process arrives ,it is then added to the readyQueue and the loop continues until no processes remain in either the
-    * readyQueue or the processes arrayList
-    * */
+
     public void scheduleSimulate(){
         readyQueue = new PriorityQueue(processes.size());
         while (!processes.isEmpty()||!readyQueue.isEmpty()){
@@ -38,6 +27,7 @@ public class Scheduler {
                     if (processes.get(i).getArrivalTime() == currentTime){
                         readyQueue.addProcess(processes.get(i));
                         processes.remove(i);
+                        i--;
                     }
                     else if(processes.get(i).getArrivalTime()>currentTime){
                         break;
@@ -51,9 +41,7 @@ public class Scheduler {
                     currentWorking.setResponseTime(currentWorking.getPInTime() - currentWorking.getArrivalTime());
                 }
                 currentWorking.setBurstTime(currentWorking.getBurstTime()-1);
-                //we might not need a gant chart
                 ganttChart.add(new GanttRecord(currentTime ,currentTime+1 ,currentWorking.getPID()));
-
                 if (currentWorking.getBurstTime()!=0){
                     readyQueue.addProcess(currentWorking);
                 }else{
@@ -62,61 +50,72 @@ public class Scheduler {
                     currentWorking.setWaitTime(currentWorking.getTurnAroundTime()- currentWorking.getInitialBT());
                     finishedProcesses.add(currentWorking);
                 }
-            }
-            currentTime++;
-        }
-    }
-    //is under development
-    public void optimiseGanttChart(){
-        ArrayList<GanttRecord> newGantt=new ArrayList<>();
-        int inT=0,extT=0,currentPID=ganttChart.get(0).getPID(),counter=0;
-        while (extT<=currentTime){
-            if (currentPID!=ganttChart.get(counter).getPID()){
-
+                currentTime++;
             }
         }
-        ganttChart=newGantt;
+        arrangeByPID(finishedProcesses);
     }
     public static double calculateAVGTAT(ArrayList<Process> p){
         int sum=0;
         double avg;
-        for (int i=0;i<p.size();i++){
-            sum+=p.get(i).getTurnAroundTime();
+        for (Process process : p) {
+            sum += process.getTurnAroundTime();
         }
-        avg=sum/p.size();
+        System.out.println("Calculating AVG TAT");
+        avg= (double) sum /p.size();
         return avg;
     }
     public static double calculateAVGRT(ArrayList<Process> p){
         int sum=0;
         double avg;
-        for (int i=0;i<p.size();i++){
-            sum+=p.get(i).getResponseTime();
+        for (Process process : p) {
+            sum += process.getResponseTime();
         }
-        avg=sum/p.size();
+        System.out.println("Calculating AVG RT");
+        avg= (double) sum /p.size();
         return avg;
     }
     public static double calculateAVGWT(ArrayList<Process> p){
         int sum=0;
         double avg;
-        for (int i=0;i<p.size();i++){
-            sum+=p.get(i).getWaitTime();
+        for (Process process : p) {
+            sum += process.getWaitTime();
         }
-        avg=sum/p.size();
+        System.out.println("Calculating AVG WT");
+        avg= (double) sum /p.size();
         return avg;
     }
     private ArrayList<Process> arrangeByTime(ArrayList<Process> p){
-        ArrayList<Process>tp=p;
-        for (int i=0;i<tp.size();i++){
-            for (int j=0;j<tp.size();j++){
+        for (int i = 0; i< p.size(); i++){
+            for (int j = 0; j< p.size(); j++){
                 Process temp;
-                if (tp.get(i).getArrivalTime()<tp.get(j).getArrivalTime()){
-                    temp=tp.get(i);
-                    tp.set(i,tp.get(j));
-                    tp.set(j,temp);
+                if (p.get(i).getArrivalTime()< p.get(j).getArrivalTime()){
+                    temp= p.get(i);
+                    p.set(i, p.get(j));
+                    p.set(j,temp);
+                }
+                else if (p.get(i).getArrivalTime()==p.get(j).getArrivalTime()
+                        &&p.get(i).getPID()<p.get(j).getPriorityLvl()){
+                    temp= p.get(i);
+                    p.set(i, p.get(j));
+                    p.set(j,temp);
                 }
             }
         }
-        return tp;
+        System.out.println("Sorting By time");
+        return p;
+    }
+    private void arrangeByPID(ArrayList<Process> p){
+        for (int i = 0; i< p.size(); i++){
+            for (int j = 0; j< p.size(); j++){
+                Process temp;
+                if (p.get(i).getPID()< p.get(j).getPID()){
+                    temp= p.get(i);
+                    p.set(i, p.get(j));
+                    p.set(j,temp);
+                }
+            }
+        }System.out.println("Sorting by PID");
     }
 
     public ArrayList<Process> getFinishedProcesses() {

@@ -2,12 +2,8 @@ package org.example.Models;
 
 public class GanttRecord {
     private int inTime;
-    private int PID;
+    private final int PID;
     private int outTime;
-    public GanttRecord(){
-        this.inTime=0;
-        this.outTime=0;
-    }
     public GanttRecord(int in,int out,int ID){
         this.inTime=in;
         this.outTime=out;

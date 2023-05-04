@@ -3,11 +3,11 @@ package org.example.Models;
 public class Process {
 
     //data to be input
-    private int PID;
-    private int arrivalTime;
+    private final int PID;
+    private final int arrivalTime;
     private int burstTime;
-    private int initialBT;
-    private int priorityLvl;
+    private final int initialBT;
+    private final int priorityLvl;
     private int PInTime;
     private int PExitTime;
     //data to be calculated

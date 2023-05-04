@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PriorityQueue {
     ArrayList <Process> processQueue;
-    int numberOfProcesses=0;
+    int numberOfProcesses;
     public PriorityQueue(int processes){
         processQueue=new ArrayList<>();
         this.numberOfProcesses=processes;
@@ -17,7 +17,16 @@ public class PriorityQueue {
         }
         else {
             for (i=0;i<processQueue.size();i++){
-                if ((p.getPriorityLvl()<=processQueue.get(i).getPriorityLvl())&&(p.getArrivalTime()<processQueue.get(i).getArrivalTime())) {
+                if ((p.getPriorityLvl()<processQueue.get(i).getPriorityLvl())) {
+                    processQueue.add(i,p);
+                    break;
+                } else if (p.getPriorityLvl()==processQueue.get(i).getPriorityLvl()
+                        &&(p.getArrivalTime()<processQueue.get(i).getArrivalTime())) {
+                    processQueue.add(i,p);
+                    break;
+                } else if (p.getPriorityLvl()==processQueue.get(i).getPriorityLvl()
+                        &&(p.getArrivalTime()==processQueue.get(i).getArrivalTime())
+                        &&p.getPID()<processQueue.get(i).getPID()) {
                     processQueue.add(i,p);
                     break;
                 }
@@ -33,9 +42,6 @@ public class PriorityQueue {
         return p;
     }
     public boolean isEmpty(){
-        if (processQueue.isEmpty()){
-            return true;
-        }
-        return false;
+        return processQueue.isEmpty();
     }
 }
