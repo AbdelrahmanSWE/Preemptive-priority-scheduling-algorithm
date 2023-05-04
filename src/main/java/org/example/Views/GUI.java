@@ -8,6 +8,15 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
+/*GUI for the processes entry frame includes
+-frame
+-labels
+-buttons for both create and run
+-table to enter input
+{{the last part of the frame for Displaying the Gantt Chart }}
+* */
+
+//Special Thanks to Eng:Abdalla Essam Ali our OS Instructor ,for providing us with a part of the GUI code
 
 public class GUI extends javax.swing.JFrame {
     private String[][] data;
@@ -19,6 +28,7 @@ public class GUI extends javax.swing.JFrame {
     }
     @SuppressWarnings("unchecked")
 
+    //All components of the GUI
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -110,6 +120,7 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }
 
+    //create button to show table to enter inputs
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String[] columns = {
             "Process Name",
@@ -146,6 +157,7 @@ public class GUI extends javax.swing.JFrame {
             jLabelErr.setText("Invalid Input");
         }
     }
+    //the "Run" button and its functions
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt){
         try{
             for (int i=0;i<noProcesses;i++){
@@ -155,6 +167,8 @@ public class GUI extends javax.swing.JFrame {
             s.scheduleSimulate();
             CalculationsGUI g=new CalculationsGUI(s.getFinishedProcesses());
             JPanel canvas = new JPanel() {
+
+                //this is the part responsible for displaying the Gantt chart
                 public void paintComponent(Graphics g) {
                     super.paintComponent(g);
                     int temp=0,i;

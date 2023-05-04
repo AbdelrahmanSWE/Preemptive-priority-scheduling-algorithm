@@ -8,24 +8,29 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 
+/*This class is the GUI that displays all calculations info after user press "Run"
+* in a different Jframe*/
 public class CalculationsGUI {
     JFrame f;
     public CalculationsGUI(ArrayList <Process>p){
         f=new JFrame();
         String data [][]=new String[p.size()][4];
+
         for (int i=0;i<p.size();i++){
             data[i][0]="p"+p.get(i).getPID();
             data[i][1]=""+(p.get(i).getWaitTime());
             data[i][2]=""+(p.get(i).getTurnAroundTime());
             data[i][3]=""+(p.get(i).getResponseTime());
         }
-         //placeholders for testing purposes
+
         String[] columns ={
                 "PID",
                 "WT",
                 "TAT",
                 "RT"
         };
+
+        //all next lines are for the design of the GUI
         DefaultTableModel model = new DefaultTableModel(data, columns);
         JTable jt=new JTable(model);
         JLabel jLAVGTAT=new JLabel("Avg TAT:"+ Scheduler.calculateAVGTAT(p));

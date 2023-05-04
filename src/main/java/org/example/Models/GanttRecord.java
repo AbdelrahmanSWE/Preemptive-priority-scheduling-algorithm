@@ -1,5 +1,5 @@
 package org.example.Models;
-
+//Class responsible for the Gantt chart Getters and setters
 public class GanttRecord {
     private int inTime;
     private final int PID;
@@ -30,5 +30,4 @@ public class GanttRecord {
         this.outTime = outTime;
     }
 
-    //A GUI function to display GANTT
 }

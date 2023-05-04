@@ -1,5 +1,6 @@
 package org.example.Models;
 
+//a class that simulates a real process
 public class Process {
 
     //data to be input

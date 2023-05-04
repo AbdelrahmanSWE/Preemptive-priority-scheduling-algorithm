@@ -1,7 +1,6 @@
 package org.example;
-
 import org.example.Views.GUI;
-
+/*Through here we catch many exceptions and run the GUI*/
 public class Main {
     public static void main(String args[]) {
         try {
@@ -20,9 +19,8 @@ public class Main {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
+        //Invoke the GUI to start and be visible
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUI().setVisible(true);

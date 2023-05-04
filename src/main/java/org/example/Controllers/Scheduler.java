@@ -5,6 +5,9 @@ import org.example.Models.PriorityQueue;
 import org.example.Models.Process;
 
 import java.util.ArrayList;
+/*
+* The Scheduler class is the main brain of this program here its decided which process
+* Starts end which process ends depending on its priority level*/
 
 public class Scheduler {
     private ArrayList <Process> processes;
@@ -55,6 +58,13 @@ public class Scheduler {
         }
         arrangeByPID(finishedProcesses);
     }
+
+    /*The next three methods are used to calculate the Average for:
+    * -Turnaround time
+    * -Run time
+    * -Waiting time
+    *
+    * then all of these are sent to the GUI to be displayed */
     public static double calculateAVGTAT(ArrayList<Process> p){
         int sum=0;
         double avg;
@@ -85,6 +95,8 @@ public class Scheduler {
         avg= (double) sum /p.size();
         return avg;
     }
+    //Method to arrange processes by the Arrival time the user assigns them Through the GUI
+
     private ArrayList<Process> arrangeByTime(ArrayList<Process> p){
         for (int i = 0; i< p.size(); i++){
             for (int j = 0; j< p.size(); j++){
@@ -105,6 +117,8 @@ public class Scheduler {
         System.out.println("Sorting By time");
         return p;
     }
+
+    //Method to arrange processes by the ID the user assigns them Through the GUI
     private void arrangeByPID(ArrayList<Process> p){
         for (int i = 0; i< p.size(); i++){
             for (int j = 0; j< p.size(); j++){
@@ -118,10 +132,13 @@ public class Scheduler {
         }System.out.println("Sorting by PID");
     }
 
+
+    //getter for finished processes,so it can be called by other classes and Main
     public ArrayList<Process> getFinishedProcesses() {
         return finishedProcesses;
     }
 
+    //getter for the Gantt chart ,so it can be called by other classes and Main
     public ArrayList<GanttRecord> getGanttChart() {
         return ganttChart;
     }
